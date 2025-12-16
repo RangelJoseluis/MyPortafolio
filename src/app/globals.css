@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 56px;
+}
+
+:root {
+  --background: #0a0e27;
+  --foreground: #ededed;
+  --cyan-primary: #0071bc;
+  --blue-primary: #005a9c;
+}
+
+body {
+  background: linear-gradient(135deg, var(--background) 0%, #1a1f3a 100%);
+  color: var(--foreground);
+  min-height: 100vh;
+}
+
+/* Estilos globales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Cada sección ocupa 100% de la pantalla */
+section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem !important;
+}
+
+/* Override de max-width para mejor centrado */
+.max-w-7xl {
+  max-width: 1000px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+}
+
+.max-w-6xl {
+  max-width: 900px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+}
+
+.max-w-5xl {
+  max-width: 800px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+}
+
+/* Forzar centrado en mx-auto */
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Efecto Neon para botones */
+.neon-button {
+  position: relative;
+  border: 2px solid var(--cyan-primary);
+  background: rgba(0, 113, 188, 0.1);
+  color: var(--cyan-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Animación de borde neon tipo cargando */
+@keyframes neon-glow {
+  0% {
+    box-shadow: 0 0 5px var(--cyan-primary), 0 0 10px var(--cyan-primary), inset 0 0 5px rgba(0, 113, 188, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 10px var(--cyan-primary), 0 0 20px var(--cyan-primary), 0 0 30px var(--cyan-primary), inset 0 0 10px rgba(0, 113, 188, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 5px var(--cyan-primary), 0 0 10px var(--cyan-primary), inset 0 0 5px rgba(0, 113, 188, 0.3);
+  }
+}
+
+.neon-button {
+  animation: neon-glow 2s ease-in-out infinite;
+}
+
+.neon-button:hover {
+  background: var(--cyan-primary);
+  color: #001a4d;
+  box-shadow: 0 0 20px var(--cyan-primary), 0 0 30px var(--cyan-primary), 0 0 40px var(--cyan-primary), inset 0 0 15px rgba(0, 113, 188, 0.6);
+  text-shadow: 0 0 5px rgba(0, 113, 188, 0.8);
+  animation: neon-glow 0.5s ease-in-out infinite;
+}
+
+/* Punto moviéndose alrededor del botón */
+@keyframes border-glow {
+  0% {
+    border-color: var(--cyan-primary);
+    box-shadow: 
+      0 0 0 2px var(--cyan-primary),
+      inset 0 0 0 0px var(--cyan-primary),
+      12px 0px 10px var(--cyan-primary);
+  }
+  25% {
+    box-shadow: 
+      0 0 0 2px var(--cyan-primary),
+      inset 0 0 0 0px var(--cyan-primary),
+      0px 12px 10px var(--cyan-primary);
+  }
+  50% {
+    box-shadow: 
+      0 0 0 2px var(--cyan-primary),
+      inset 0 0 0 0px var(--cyan-primary),
+      -12px 0px 10px var(--cyan-primary);
+  }
+  75% {
+    box-shadow: 
+      0 0 0 2px var(--cyan-primary),
+      inset 0 0 0 0px var(--cyan-primary),
+      0px -12px 10px var(--cyan-primary);
+  }
+  100% {
+    box-shadow: 
+      0 0 0 2px var(--cyan-primary),
+      inset 0 0 0 0px var(--cyan-primary),
+      12px 0px 10px var(--cyan-primary);
+  }
+}
+
+/* Efecto Neon para botones de navegación */
+.neon-nav-button {
+  position: relative;
+  background: transparent;
+  color: var(--cyan-primary) !important;
+  font-weight: 700 !important;
+  border: 2px solid var(--cyan-primary);
+  transition: all 0.3s ease;
+  animation: border-glow 3s ease-in-out infinite;
+}
+
+.neon-nav-button:hover {
+  background: var(--cyan-primary);
+  color: #001a4d !important;
+  box-shadow: 
+    0 0 0 2px var(--cyan-primary),
+    0 0 15px var(--cyan-primary), 
+    0 0 25px var(--cyan-primary), 
+    inset 0 0 10px rgba(0, 113, 188, 0.5);
+  animation: border-glow 1.2s ease-in-out infinite;
+}
+
+/* Padding horizontal consistente */
+section {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+/* Estilos de selección */
+::selection {
+  background-color: var(--cyan-primary);
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 0 !important;
+  display: none !important;
+}
+
+::-webkit-scrollbar-track {
+  display: none !important;
+}
+
+::-webkit-scrollbar-thumb {
+  display: none !important;
+}
+
+/* Ocultar scrollbar en Firefox */
+* {
+  scrollbar-width: none;
+}
+
