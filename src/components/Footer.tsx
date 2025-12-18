@@ -60,7 +60,7 @@ export default function Footer() {
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           {/* Copyright */}
           <p className="text-gray-400 text-sm">
-            © 2024 DevNick. Todos los derechos reservados.
+            © 2024 DevJose. Todos los derechos reservados.
           </p>
 
           {/* Botón Subir */}

@@ -68,7 +68,10 @@ export default function Skills() {
   );
 
   return (
-    <section id="skills" ref={sectionRef} className="w-full h-screen bg-white/5 relative overflow-hidden">
+    <section id="skills" ref={sectionRef} className="w-full h-screen bg-gradient-to-br from-[#0f3460] via-[#16213e] to-[#1a1a2e] relative overflow-hidden">
+      {/* Overlay difuminado superior para transición suave */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#16213e]/30 to-transparent pointer-events-none z-10"></div>
+
       <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 md:px-8 flex flex-col justify-center relative z-10">
         {/* Título */}
         <div className="text-center mb-12">

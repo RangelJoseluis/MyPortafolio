@@ -28,7 +28,10 @@ export default function Contact() {
   };
 
   return (
-    <section id="contacto" className="w-full h-screen bg-white/5 relative overflow-hidden">
+    <section id="contacto" className="w-full h-screen bg-gradient-to-br from-[#020c1b] via-[#0a192f] to-[#000000] relative overflow-hidden">
+      {/* Overlay difuminado superior para transición suave */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#112240]/30 to-transparent pointer-events-none z-10"></div>
+
       <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 md:px-8 flex flex-col justify-center relative z-10">
         {/* Título */}
         <div className="text-center mb-8 md:mb-10 animate-on-scroll">

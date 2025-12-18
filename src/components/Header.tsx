@@ -36,23 +36,23 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 bg-white/10 backdrop-blur-md border-b border-white/20 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="flex justify-between items-center h-14">
-          {/* Logo */}
-          <div className="shrink-0 pl-3 md:pl-4 lg:pl-6">
-            <a href="#inicio" className="text-lg md:text-xl font-bold text-white hover:text-cyan-300 transition-colors duration-300">
+      <div className="w-[90%] max-w-[1400px] mx-auto">
+        <div className="flex justify-between items-center h-12">
+          {/* Logo - Más a la izquierda y más grande */}
+          <div className="shrink-0">
+            <a href="#inicio" className="text-xl md:text-2xl font-bold text-white hover:text-cyan-300 transition-colors duration-300 flex items-center">
               Dev<span className="text-cyan-400">Jose Luis</span>
             </a>
           </div>
 
-          {/* Navegación Desktop */}
-          <nav className="hidden md:flex gap-2 lg:gap-3 pr-3 md:pr-4 lg:pr-6 items-center">
+          {/* Navegación Desktop - Más a la derecha y botones más grandes */}
+          <nav className="hidden md:flex gap-4 lg:gap-6 items-center">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="neon-nav-button px-4 md:px-5 py-1.5 md:py-2 rounded-md text-xs md:text-sm whitespace-nowrap"
+                className="neon-nav-button px-5 md:px-6 py-1.5 md:py-2 rounded-lg text-sm md:text-base whitespace-nowrap font-medium transition-all hover:scale-105"
               >
                 {link.label}
               </a>

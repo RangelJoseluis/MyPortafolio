@@ -37,7 +37,10 @@ export default function About() {
   ];
 
   return (
-    <section id="sobremi" className="w-full h-screen bg-linear-to-b from-white/5 via-white/3 to-white/5 relative overflow-hidden">
+    <section id="sobremi" className="w-full h-screen bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] relative overflow-hidden">
+      {/* Overlay difuminado superior para transición suave */}
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#003d7a]/30 to-transparent pointer-events-none z-10"></div>
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 w-full flex flex-col justify-center h-full relative z-10 py-4">
 
         {/* ========== SECCIÓN 1: TÍTULO PRINCIPAL ========== */}
