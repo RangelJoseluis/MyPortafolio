@@ -56,6 +56,12 @@ section {
   overflow: hidden !important;
 }
 
+
+/* Curriculum section - permite padding personalizado */
+#curriculum {
+  padding: 1rem 1rem 6.0rem 1rem !important;
+}
+
 /* Degradado de transición suave entre secciones */
 section::after {
   content: '';

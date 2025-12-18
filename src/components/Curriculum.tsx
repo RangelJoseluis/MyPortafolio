@@ -1,120 +1,85 @@
 'use client';
 
-interface TimelineItem {
-  title: string;
-  company: string;
-  date: string;
-  description: string;
-}
+import React from 'react';
+import TimelineItem from './Curriculum/TimelineItem';
+import EducationItem from './Curriculum/EducationItem';
+import { experienceData, educationData } from './Curriculum/CurriculumData';
 
 export default function Curriculum() {
-  const education: TimelineItem[] = [
-    {
-      title: 'Ingeniero en Software',
-      company: 'Universidad Tecnológica',
-      date: '2018 - 2022',
-      description: 'Formación especializada en desarrollo de software con énfasis en tecnologías web modernas.',
-    },
-    {
-      title: 'Certificado Full Stack Developer',
-      company: 'Bootcamp de Programación',
-      date: '2017 - 2018',
-      description: 'Programa intensivo de 6 meses en desarrollo front-end y back-end.',
-    },
-    {
-      title: 'Educación Media',
-      company: 'Instituto Educativo',
-      date: '2010 - 2016',
-      description: 'Formación académica general con énfasis en ciencias y matemáticas.',
-    },
-  ];
-
-  const experience: TimelineItem[] = [
-    {
-      title: 'Desarrollador Full Stack Senior',
-      company: 'Tech Solutions Inc',
-      date: '2022 - Presente',
-      description: 'Desarrollo de aplicaciones web escalables con React, Node.js y TypeScript. Liderazgo de equipo y arquitectura de sistemas.',
-    },
-    {
-      title: 'Desarrollador Full Stack Junior',
-      company: 'Digital Innovations',
-      date: '2020 - 2022',
-      description: 'Implementación de features, corrección de bugs y colaboración en proyectos con metodologías ágiles.',
-    },
-    {
-      title: 'Desarrollador Frontend',
-      company: 'Web Studio',
-      date: '2018 - 2020',
-      description: 'Creación de interfaces de usuario responsivas y mantenimiento de aplicaciones legacy.',
-    },
-  ];
-
   return (
-    <section id="curriculum" className="w-full h-screen bg-gradient-to-br from-[#16213e] via-[#0f3460] to-[#0a192f] relative overflow-hidden">
-      {/* Overlay difuminado superior para transición suave */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#1a1a2e]/30 to-transparent pointer-events-none z-10"></div>
+    <section id="curriculum" className="w-full min-h-screen bg-[#0a0e27] relative overflow-hidden flex items-center pt-1 pb-6 px-4 sm:px-6 lg:px-8">
+      {/* Fondo con degradado sutil */}
+      <div className="absolute inset-0 bg-gradient-to-bl from-[#0f3460] via-[#0a0e27] to-[#1a1a2e] opacity-90"></div>
 
-      <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 md:px-8 flex flex-col justify-center relative z-10">
-        {/* Título */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-            Mi <span className="text-cyan-400">Trayectoria</span>
+      {/* Elementos decorativos de fondo */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
+        <div className="absolute top-1/4 left-10 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 right-10 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-6xl mx-auto w-full relative z-10">
+        {/* Encabezado de sección */}
+        <div className="mb-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight">
+            Mi <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">Trayectoria</span>
           </h2>
-          <div className="w-20 h-1 bg-linear-to-r from-cyan-400 to-blue-500 mx-auto"></div>
+          <div className="h-1.5 w-24 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-full mx-auto shadow-[0_0_15px_rgba(34,211,238,0.4)]"></div>
+          <p className="mt-3 text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
+            Un recorrido por mi experiencia profesional y formación académica, construyendo soluciones y aprendiendo constantemente.
+          </p>
         </div>
 
-        {/* Timeline */}
-        <div className="grid md:grid-cols-2 gap-10">
-          {/* Educación - Izquierda */}
-          <div>
-            <h3 className="text-xl font-bold text-white mb-6 text-center">Educación</h3>
-            <div className="relative">
-              {/* Línea vertical */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-linear-to-b from-cyan-400 to-blue-500"></div>
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-10">
+          {/* Columna Izquierda: Experiencia (8 columnas) */}
+          <div className="lg:col-span-8">
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-5 flex items-center gap-3">
+              <span className="p-2 bg-cyan-500/10 rounded-lg text-cyan-400 border border-cyan-500/20">
+                <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </span>
+              Experiencia Profesional
+            </h3>
 
-              {education.map((item, idx) => (
-                <div key={idx} className="mb-6 relative">
-                  {/* Contenedor del item - alternado derecha */}
-                  <div className="w-1/2 pr-8">
-                    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-5 hover:border-cyan-400/50 transition-all duration-300">
-                      {/* Círculo en la línea */}
-                      <div className="absolute left-1/2 top-6 transform -translate-x-1/2 w-4 h-4 bg-cyan-400 rounded-full border-4 border-blue-950"></div>
+            <div className="relative pl-2">
+              {/* Línea vertical continua de fondo */}
+              <div className="absolute left-[19px] top-4 bottom-0 w-0.5 bg-white/5"></div>
 
-                      <h4 className="text-base font-bold text-white mb-1">{item.title}</h4>
-                      <p className="text-cyan-400 font-semibold text-xs mb-2">{item.company}</p>
-                      <p className="text-blue-300 text-xs mb-2">{item.date}</p>
-                      <p className="text-gray-300 text-xs leading-relaxed">{item.description}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+              <div className="space-y-6">
+                {experienceData.map((exp, idx) => (
+                  <TimelineItem
+                    key={exp.id}
+                    data={exp}
+                    isLast={idx === experienceData.length - 1}
+                    delay={idx * 200}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Experiencia - Derecha */}
-          <div>
-            <h3 className="text-xl font-bold text-white mb-6 text-center">Experiencia</h3>
-            <div className="relative">
-              {/* Línea vertical */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-linear-to-b from-blue-500 to-cyan-400"></div>
+          {/* Columna Derecha: Educación (4 columnas) */}
+          <div className="lg:col-span-4">
+            <div className="lg:sticky lg:top-24">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-5 flex items-center gap-3">
+                <span className="p-2 bg-blue-600/10 rounded-lg text-blue-400 border border-blue-600/20">
+                  <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                    <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                  </svg>
+                </span>
+                Educación
+              </h3>
 
-              {experience.map((item, idx) => (
-                <div key={idx} className="mb-6 relative">
-                  {/* Contenedor del item - alternado izquierda */}
-                  <div className="w-1/2 ml-1/2 pl-8">
-                    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-5 hover:border-cyan-400/50 transition-all duration-300">
-                      {/* Círculo en la línea */}
-                      <div className="absolute left-1/2 top-6 transform -translate-x-1/2 w-4 h-4 bg-blue-400 rounded-full border-4 border-blue-950"></div>
-
-                      <h4 className="text-base font-bold text-white mb-1">{item.title}</h4>
-                      <p className="text-cyan-400 font-semibold text-xs mb-2">{item.company}</p>
-                      <p className="text-blue-300 text-xs mb-2">{item.date}</p>
-                      <p className="text-gray-300 text-xs leading-relaxed">{item.description}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+              <div className="space-y-5">
+                {educationData.map((edu, idx) => (
+                  <EducationItem
+                    key={edu.id}
+                    data={edu}
+                    delay={idx * 200 + 400}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </div>
