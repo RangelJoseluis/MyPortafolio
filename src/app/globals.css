@@ -70,14 +70,6 @@ section {
 #portfolio {
   padding: 4rem 1rem 4rem 1rem !important;
   align-items: flex-start !important;
-  justify-content: flex-start !important;
-  height: auto !important;
-  min-height: 100vh !important;
-}
-
-/* Degradado de transición suave entre secciones */
-section::after {
-  content: '';
   position: absolute;
   bottom: 0;
   left: 0;
