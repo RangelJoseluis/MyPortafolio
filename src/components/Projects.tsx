@@ -1,158 +1,68 @@
 'use client';
 
-import { useState } from 'react';
-
-interface Project {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  category: string;
-  tags: string[];
-  link: string;
-}
-
-const projects: Project[] = [
-  {
-    id: 1,
-    title: 'E-commerce Moderno',
-    description: 'Plataforma de compras completa con carrito, pagos y gestión de inventario',
-    image: 'https://images.unsplash.com/photo-1516321318423-f06f70f504de?w=400&h=300&fit=crop',
-    category: 'Web',
-    tags: ['Next.js', 'TypeScript', 'Stripe'],
-    link: '#',
-  },
-  {
-    id: 2,
-    title: 'App de Tareas Colaborativa',
-    description: 'Aplicación de gestión de tareas con soporte para equipos y tiempo real',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=300&fit=crop',
-    category: 'Web',
-    tags: ['React', 'Firebase', 'Tailwind'],
-    link: '#',
-  },
-  {
-    id: 3,
-    title: 'Dashboard Analítico',
-    description: 'Panel de control con gráficos interactivos y estadísticas en tiempo real',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop',
-    category: 'Dashboard',
-    tags: ['Next.js', 'D3.js', 'PostgreSQL'],
-    link: '#',
-  },
-  {
-    id: 4,
-    title: 'Portfolio Personal',
-    description: 'Sitio web de portafolio con efectos visuales impactantes y animaciones',
-    image: 'https://images.unsplash.com/photo-1467232557539-ea2500142f5f?w=400&h=300&fit=crop',
-    category: 'Diseño',
-    tags: ['Next.js', 'Tailwind', 'Framer Motion'],
-    link: '#',
-  },
-  {
-    id: 5,
-    title: 'Red Social Minimalista',
-    description: 'Plataforma social con feed, comentarios y sistema de notificaciones',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab655c0c1?w=400&h=300&fit=crop',
-    category: 'Social',
-    tags: ['Next.js', 'Node.js', 'MongoDB'],
-    link: '#',
-  },
-  {
-    id: 6,
-    title: 'Blog de Tecnología',
-    description: 'Blog dinámico con búsqueda, categorías y sistema de comentarios',
-    image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=400&h=300&fit=crop',
-    category: 'Blog',
-    tags: ['Next.js', 'MDX', 'Contentful'],
-    link: '#',
-  },
-];
+import React, { useState } from 'react';
+import ProjectCard from './Projects/ProjectCard';
+import ProjectModal from './Projects/ProjectModal';
+import { projectsData, Project } from './Projects/ProjectsData';
 
 export default function Projects() {
-  const [activeCategory, setActiveCategory] = useState('Todos');
-  const categories = ['Todos', 'Web', 'Dashboard', 'Diseño', 'Social', 'Blog'];
-
-  const filteredProjects =
-    activeCategory === 'Todos'
-      ? projects
-      : projects.filter((p) => p.category === activeCategory);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="portfolio" className="w-full h-screen bg-gradient-to-br from-[#0a192f] via-[#112240] to-[#020c1b] relative overflow-hidden">
-      {/* Overlay difuminado superior para transición suave */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#0f3460]/30 to-transparent pointer-events-none z-10"></div>
+    <section id="portfolio" className="w-full min-h-screen bg-[#0a0e27] relative overflow-hidden flex items-start pt-10 pb-10 px-4 sm:px-6 lg:px-8">
+      {/* Fondo con degradado sutil */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#0a0e27] via-[#0f1635] to-[#0a0e27] opacity-90"></div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 w-full flex flex-col justify-center relative z-10">
-        {/* Título */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
-            Mi <span className="text-cyan-400">Portafolio</span>
+      {/* Elementos decorativos de fondo */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none">
+        <div className="absolute top-1/3 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-600/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-[90rem] mx-auto w-full relative z-10">
+        {/* Encabezado */}
+        <div className="text-center mb-6">
+          <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 tracking-tight">
+            Mis <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">Proyectos</span>
           </h2>
-          <div className="w-20 md:w-24 h-1.5 bg-linear-to-r from-cyan-400 to-blue-500 mx-auto rounded"></div>
-        </div>
-
-        {/* Filtros de Categorías */}
-        <div className="flex flex-wrap justify-center gap-2 md:gap-2 mb-10">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-3 md:px-5 py-2 rounded-full font-semibold transition-all duration-300 text-xs md:text-sm ${activeCategory === category
-                ? 'bg-linear-to-r from-cyan-400 to-blue-500 text-white'
-                : 'bg-white/10 text-white hover:bg-white/20 border border-white/20'
-                }`}
-            >
-              {category}
-            </button>
-          ))}
+          <div className="h-1 w-16 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-full mx-auto shadow-[0_0_15px_rgba(34,211,238,0.4)]"></div>
+          <p className="mt-3 text-gray-400 max-w-2xl mx-auto text-sm md:text-base">
+            Explora una selección de mis trabajos más recientes.
+          </p>
         </div>
 
         {/* Grid de Proyectos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6 max-w-6xl mx-auto">
-          {filteredProjects.map((project) => (
-            <div
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          {projectsData.map((project) => (
+            <ProjectCard
               key={project.id}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg overflow-hidden group hover:border-cyan-400/50 transition-all duration-300 transform hover:scale-105"
-            >
-              {/* Imagen con Overlay */}
-              <div className="relative h-40 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                  <a
-                    href={project.link}
-                    className="bg-cyan-400 hover:bg-cyan-500 text-black font-bold px-5 py-2 rounded-lg transition-all duration-300 transform text-sm"
-                  >
-                    Ver Proyecto
-                  </a>
-                </div>
-              </div>
-
-              {/* Contenido */}
-              <div className="p-5">
-                <h3 className="text-lg font-bold text-white mb-1">{project.title}</h3>
-                <p className="text-gray-300 text-xs mb-3 line-clamp-2">{project.description}</p>
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1">
-                  {project.tags.map((tag, idx) => (
-                    <span
-                      key={idx}
-                      className="text-xs bg-cyan-500/20 text-cyan-300 px-2 py-1 rounded-full border border-cyan-400/30 hover:bg-cyan-500/30 transition-colors"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
+              project={project}
+              onClick={() => setSelectedProject(project)}
+            />
           ))}
+
+          {/* Tarjeta de "Próximamente" */}
+          <div className="group relative bg-[#0f1635]/30 rounded-xl border-2 border-dashed border-white/10 hover:border-cyan-500/30 hover:bg-[#0f1635]/50 transition-all duration-300 flex flex-col items-center justify-center h-full min-h-[200px] p-4 text-center cursor-default">
+            <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300 group-hover:bg-cyan-500/10">
+              <svg className="w-6 h-6 text-gray-500 group-hover:text-cyan-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+              </svg>
+            </div>
+            <h3 className="text-base font-bold text-gray-400 group-hover:text-white transition-colors mb-1">Más Proyectos</h3>
+            <p className="text-gray-600 group-hover:text-gray-400 text-[10px] transition-colors max-w-[150px]">
+              Trabajando en nuevas ideas y soluciones innovadoras.
+            </p>
+          </div>
         </div>
+
+        {/* Modal de Proyecto */}
+        {selectedProject && (
+          <ProjectModal
+            project={selectedProject}
+            isOpen={!!selectedProject}
+            onClose={() => setSelectedProject(null)}
+          />
+        )}
       </div>
     </section>
   );
