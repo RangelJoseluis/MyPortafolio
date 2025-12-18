@@ -1,11 +1,14 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import TimelineItem from './Curriculum/TimelineItem';
 import EducationItem from './Curriculum/EducationItem';
+import ViewAllExperiencesModal from './Curriculum/ViewAllExperiencesModal';
 import { experienceData, educationData } from './Curriculum/CurriculumData';
 
 export default function Curriculum() {
+  const [isViewAllOpen, setIsViewAllOpen] = useState(false);
+
   return (
     <section id="curriculum" className="w-full min-h-screen bg-[#0a0e27] relative overflow-hidden flex items-center pt-1 pb-6 px-4 sm:px-6 lg:px-8">
       {/* Fondo con degradado sutil */}
@@ -44,8 +47,8 @@ export default function Curriculum() {
             <div className="relative pl-2">
               {/* Línea vertical continua de fondo */}
               <div className="absolute left-[19px] top-4 bottom-0 w-0.5 bg-white/5"></div>
-
-              <div className="space-y-6">
+              {/* para espacios entttre cartas experiencia */}
+              <div className="flex flex-col gap-5">
                 {experienceData.map((exp, idx) => (
                   <TimelineItem
                     key={exp.id}
@@ -54,6 +57,28 @@ export default function Curriculum() {
                     delay={idx * 200}
                   />
                 ))}
+              </div>
+
+              {/* Espaciador explícito */}
+              <div className="h-16 w-full"></div>
+
+              {/* Botón "Ver más" - Más separación */}
+              <div className="flex justify-center relative z-20">
+                <button
+                  onClick={() => setIsViewAllOpen(true)}
+                  className="group relative px-8 py-3 bg-gradient-to-r from-cyan-500/10 to-blue-600/10 hover:from-cyan-500/20 hover:to-blue-600/20 border border-cyan-500/30 hover:border-cyan-400/50 rounded-xl text-white font-semibold transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-500/20 overflow-hidden"
+                >
+                  {/* Efecto de brillo */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+
+                  <span className="relative flex items-center gap-2">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                    Ver toda mi experiencia
+                  </span>
+                </button>
               </div>
             </div>
           </div>
@@ -84,6 +109,12 @@ export default function Curriculum() {
           </div>
         </div>
       </div>
+
+      {/* Modal de todas las experiencias */}
+      <ViewAllExperiencesModal
+        isOpen={isViewAllOpen}
+        onClose={() => setIsViewAllOpen(false)}
+      />
     </section>
   );
 }

@@ -14,14 +14,14 @@ export default function TimelineItem({ data, isLast = false, delay = 0 }: Timeli
     return (
         <>
             <div
-                className="relative flex gap-4 md:gap-8 group cursor-pointer"
+                className="relative flex gap-4 md:gap-8 group cursor-pointer mb-12 last:mb-0"
                 style={{ animationDelay: `${delay}ms` }}
                 onClick={() => setIsModalOpen(true)}
             >
                 {/* Línea de tiempo */}
                 <div className="flex flex-col items-center">
-                    {/* Punto brillante */}
-                    <div className="w-4 h-4 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.8)] z-10 mt-1.5 group-hover:scale-125 transition-transform duration-300"></div>
+                    {/* Punto brillante - Alineado con el título */}
+                    <div className="w-4 h-4 rounded-full bg-cyan-500 shadow-[0_0_10px_rgba(6,182,212,0.8)] z-10 mt-7 group-hover:scale-125 transition-transform duration-300"></div>
                     {/* Línea conectora */}
                     {!isLast && (
                         <div className="w-0.5 h-full bg-gradient-to-b from-cyan-500/50 to-transparent my-2 group-hover:bg-cyan-500/30 transition-colors"></div>
@@ -29,7 +29,7 @@ export default function TimelineItem({ data, isLast = false, delay = 0 }: Timeli
                 </div>
 
                 {/* Contenido de la tarjeta compacta */}
-                <div className="flex-1 pb-16 animate-on-scroll opacity-0 translate-y-8 transition-all duration-700">
+                <div className="flex-1">
                     <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-4 md:p-5 hover:border-cyan-500/40 hover:bg-white/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-500/10 group-hover:border-l-cyan-500/50 border-l-4 border-l-transparent relative overflow-hidden">
 
                         {/* Indicador de "click para ver más" */}
