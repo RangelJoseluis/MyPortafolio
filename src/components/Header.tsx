@@ -15,8 +15,23 @@ export default function Header() {
     { label: 'Contacto', href: '#contacto' },
   ];
 
-  const handleNavClick = () => {
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
     setIsMenuOpen(false);
+
+    const targetId = href.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      const headerOffset = 0; // Usar scroll-padding-top del CSS
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
@@ -36,7 +51,7 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={handleNavClick}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="neon-nav-button px-4 md:px-5 py-1.5 md:py-2 rounded-md text-xs md:text-sm whitespace-nowrap"
               >
                 {link.label}
@@ -67,7 +82,7 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={handleNavClick}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="block text-white hover:text-cyan-300 px-3 py-2 rounded-md text-base font-medium transition-colors duration-300"
               >
                 {link.label}

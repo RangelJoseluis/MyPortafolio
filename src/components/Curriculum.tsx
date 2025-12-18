@@ -51,7 +51,7 @@ export default function Curriculum() {
   ];
 
   return (
-    <section id="curriculum" className="w-full min-h-screen bg-white/5 relative" style={{ scrollMarginTop: "-200px" }}>
+    <section id="curriculum" className="w-full h-screen bg-white/5 relative overflow-hidden">
       <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 md:px-8 flex flex-col justify-center relative z-10">
         {/* Título */}
         <div className="text-center mb-12">

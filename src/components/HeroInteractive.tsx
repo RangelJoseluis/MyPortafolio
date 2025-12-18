@@ -27,7 +27,7 @@ export default function HeroInteractive() {
   };
 
   return (
-    <section id="inicio" className="relative h-screen w-screen bg-linear-to-br from-[#0071bc] via-[#004a99] to-[#003d7a] flex items-center justify-center px-3 sm:px-6 lg:px-8 overflow-hidden" style={{ scrollMarginTop: "-200px" }}>
+    <section id="inicio" className="relative h-screen w-screen bg-linear-to-br from-[#0071bc] via-[#004a99] to-[#003d7a] flex items-center justify-center px-3 sm:px-6 lg:px-8 overflow-hidden">
       {/* Fondo decorativo */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-1/4 w-80 h-80 bg-white rounded-full mix-blend-multiply filter blur-3xl"></div>

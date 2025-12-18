@@ -37,9 +37,9 @@ export default function About() {
   ];
 
   return (
-    <section id="sobremi" className="w-full h-screen bg-linear-to-b from-white/5 via-white/3 to-white/5 relative overflow-y-auto" style={{ scrollMarginTop: "-200px" }}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 w-full flex flex-col justify-center min-h-screen relative z-10 py-8">
-        
+    <section id="sobremi" className="w-full h-screen bg-linear-to-b from-white/5 via-white/3 to-white/5 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 w-full flex flex-col justify-center h-full relative z-10 py-4">
+
         {/* ========== SECCIÓN 1: TÍTULO PRINCIPAL ========== */}
         <div className="text-center mb-4 md:mb-5 animate-on-scroll">
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold text-white mb-2 md:mb-2">
@@ -51,23 +51,23 @@ export default function About() {
 
         {/* ========== SECCIÓN 2: PRESENTACIÓN + DATOS PERSONALES ========== */}
         <div className="grid md:grid-cols-5 gap-3 md:gap-5 mb-4 md:mb-5 items-stretch animate-on-scroll-delay-1">
-          
+
           {/* Columna Izquierda: Descripción e Introducción (3 columnas) */}
           <div className="md:col-span-3 flex flex-col justify-center space-y-1 md:space-y-2 order-2 md:order-1 animate-on-scroll-delay-1">
             {/* Primer párrafo: Presentación como desarrollador */}
             <p className="text-gray-200 text-xs sm:text-sm md:text-sm lg:text-base leading-relaxed">
-              Hola, soy un desarrollador <span className="text-cyan-400 font-semibold">full stack</span> apasionado por crear soluciones web innovadoras. 
-              Con experiencia en tecnologías modernas como <span className="text-cyan-400 font-semibold">React, Next.js y Node.js</span>, me dedico a 
+              Hola, soy un desarrollador <span className="text-cyan-400 font-semibold">full stack</span> apasionado por crear soluciones web innovadoras.
+              Con experiencia en tecnologías modernas como <span className="text-cyan-400 font-semibold">React, Next.js y Node.js</span>, me dedico a
               transformar ideas en aplicaciones funcionales y hermosas.
             </p>
-            
+
             {/* Segundo párrafo: Filosofía y valores profesionales */}
             <p className="text-gray-200 text-xs sm:text-sm md:text-sm lg:text-base leading-relaxed">
-              Me encanta aprender nuevas tecnologías y enfrentarme a desafíos que me ayuden a crecer 
-              como profesional. Creo en la importancia del <span className="text-cyan-400 font-semibold">diseño limpio</span>, el <span className="text-cyan-400 font-semibold">código mantenible</span> y 
+              Me encanta aprender nuevas tecnologías y enfrentarme a desafíos que me ayuden a crecer
+              como profesional. Creo en la importancia del <span className="text-cyan-400 font-semibold">diseño limpio</span>, el <span className="text-cyan-400 font-semibold">código mantenible</span> y
               la <span className="text-cyan-400 font-semibold">experiencia del usuario</span>.
             </p>
-            
+
             {/* Botón para descargar CV */}
             <div className="pt-0.5">
               <button className="bg-linear-to-r from-cyan-400 to-blue-500 hover:from-cyan-500 hover:to-blue-600 text-white font-bold py-2 md:py-2 px-5 md:px-6 rounded-lg transition-all duration-300 transform hover:scale-105 w-fit text-xs sm:text-sm md:text-sm shadow-lg hover:shadow-cyan-400/50">
@@ -83,7 +83,7 @@ export default function About() {
               <span className="text-cyan-400 text-lg md:text-xl">👤</span>
               Datos Personales
             </h3>
-            
+
             {/* Lista de datos personales */}
             <ul className="space-y-2 md:space-y-3">
               {/* Cumpleaños */}
@@ -94,7 +94,7 @@ export default function About() {
                   <p className="text-gray-200 text-xs md:text-sm mt-0.5">{personalData.birthDate}</p>
                 </div>
               </li>
-              
+
               {/* Teléfono */}
               <li className="flex items-start gap-3 pb-4 border-b border-white/10">
                 <span className="text-cyan-400 font-bold text-base md:text-lg min-w-fit">📱</span>
@@ -103,7 +103,7 @@ export default function About() {
                   <p className="text-gray-200 text-sm md:text-base mt-1">{personalData.phone}</p>
                 </div>
               </li>
-              
+
               {/* Email */}
               <li className="flex items-start gap-3 pb-4 border-b border-white/10">
                 <span className="text-cyan-400 font-bold text-base md:text-lg min-w-fit">✉️</span>
@@ -112,7 +112,7 @@ export default function About() {
                   <p className="text-gray-200 text-sm md:text-base mt-1 break-all">{personalData.email}</p>
                 </div>
               </li>
-              
+
               {/* Website */}
               <li className="flex items-start gap-3 pb-4 border-b border-white/10">
                 <span className="text-cyan-400 font-bold text-base md:text-lg min-w-fit">🌐</span>
@@ -121,7 +121,7 @@ export default function About() {
                   <p className="text-gray-200 text-sm md:text-base mt-1">{personalData.website}</p>
                 </div>
               </li>
-              
+
               {/* Dirección */}
               <li className="flex items-start gap-3 pb-4 border-b border-white/10">
                 <span className="text-cyan-400 font-bold text-base md:text-lg min-w-fit">📍</span>
@@ -130,7 +130,7 @@ export default function About() {
                   <p className="text-gray-200 text-sm md:text-base mt-1">{personalData.address}</p>
                 </div>
               </li>
-              
+
               {/* Cargo/Rol con badge destacado */}
               <li className="flex items-start gap-3 pt-2">
                 <span className="text-cyan-400 font-bold text-base md:text-lg min-w-fit">💼</span>
@@ -151,7 +151,7 @@ export default function About() {
           <h3 className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold text-white mb-4 md:mb-5 text-center animate-on-scroll-delay-2">
             Mis <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Intereses</span>
           </h3>
-          
+
           {/* Grid de intereses con efectos hover */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
             {/* Mapeo de cada interés con tarjeta interactiva */}
@@ -162,12 +162,12 @@ export default function About() {
               >
                 {/* Overlay de fondo en hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                
+
                 {/* Emoji del interés con animación */}
                 <span className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl mb-1 relative z-10 transition-transform duration-300 group-hover:scale-125">
                   {interest.icon}
                 </span>
-                
+
                 {/* Label del interés */}
                 <span className="text-xs sm:text-xs md:text-xs font-semibold text-gray-200 group-hover:text-cyan-300 transition-colors duration-300 relative z-10">
                   {interest.label}
@@ -183,7 +183,7 @@ export default function About() {
           <p className="text-gray-300 text-xs sm:text-sm md:text-sm mb-3 md:mb-4">
             ¿Listo para trabajar juntos?
           </p>
-          
+
           {/* Botón CTA que lleva a la sección de contacto */}
           <a
             href="#contacto"
