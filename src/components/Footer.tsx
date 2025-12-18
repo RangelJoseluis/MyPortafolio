@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Información */}
           <div>
-            <h3 className="text-xl font-bold mb-4 text-cyan-400">DevNick</h3>
+            <h3 className="text-xl font-bold mb-4 text-cyan-400">DevJose Luis</h3>
             <p className="text-gray-300 text-sm leading-relaxed">
               Desarrollador Full Stack apasionado por crear soluciones web innovadoras y hermosas.
             </p>

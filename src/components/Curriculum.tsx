@@ -51,37 +51,37 @@ export default function Curriculum() {
   ];
 
   return (
-    <section id="curriculum" className="bg-white/5 py-0">
-      <div className="max-w-7xl mx-auto w-full py-20">
+    <section id="curriculum" className="w-full min-h-screen bg-white/5 relative" style={{ scrollMarginTop: "-200px" }}>
+      <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 md:px-8 flex flex-col justify-center relative z-10">
         {/* Título */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
             Mi <span className="text-cyan-400">Trayectoria</span>
           </h2>
           <div className="w-20 h-1 bg-linear-to-r from-cyan-400 to-blue-500 mx-auto"></div>
         </div>
 
         {/* Timeline */}
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-10">
           {/* Educación - Izquierda */}
           <div>
-            <h3 className="text-2xl font-bold text-white mb-8 text-center">Educación</h3>
+            <h3 className="text-xl font-bold text-white mb-6 text-center">Educación</h3>
             <div className="relative">
               {/* Línea vertical */}
               <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-linear-to-b from-cyan-400 to-blue-500"></div>
 
               {education.map((item, idx) => (
-                <div key={idx} className="mb-8 relative">
+                <div key={idx} className="mb-6 relative">
                   {/* Contenedor del item - alternado derecha */}
                   <div className="w-1/2 pr-8">
-                    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6 hover:border-cyan-400/50 transition-all duration-300">
+                    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-5 hover:border-cyan-400/50 transition-all duration-300">
                       {/* Círculo en la línea */}
                       <div className="absolute left-1/2 top-6 transform -translate-x-1/2 w-4 h-4 bg-cyan-400 rounded-full border-4 border-blue-950"></div>
 
-                      <h4 className="text-lg font-bold text-white mb-1">{item.title}</h4>
-                      <p className="text-cyan-400 font-semibold text-sm mb-2">{item.company}</p>
-                      <p className="text-blue-300 text-xs mb-3">{item.date}</p>
-                      <p className="text-gray-300 text-sm leading-relaxed">{item.description}</p>
+                      <h4 className="text-base font-bold text-white mb-1">{item.title}</h4>
+                      <p className="text-cyan-400 font-semibold text-xs mb-2">{item.company}</p>
+                      <p className="text-blue-300 text-xs mb-2">{item.date}</p>
+                      <p className="text-gray-300 text-xs leading-relaxed">{item.description}</p>
                     </div>
                   </div>
                 </div>
@@ -91,23 +91,23 @@ export default function Curriculum() {
 
           {/* Experiencia - Derecha */}
           <div>
-            <h3 className="text-2xl font-bold text-white mb-8 text-center">Experiencia</h3>
+            <h3 className="text-xl font-bold text-white mb-6 text-center">Experiencia</h3>
             <div className="relative">
               {/* Línea vertical */}
               <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-linear-to-b from-blue-500 to-cyan-400"></div>
 
               {experience.map((item, idx) => (
-                <div key={idx} className="mb-8 relative">
+                <div key={idx} className="mb-6 relative">
                   {/* Contenedor del item - alternado izquierda */}
                   <div className="w-1/2 ml-1/2 pl-8">
-                    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-6 hover:border-cyan-400/50 transition-all duration-300">
+                    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg p-5 hover:border-cyan-400/50 transition-all duration-300">
                       {/* Círculo en la línea */}
                       <div className="absolute left-1/2 top-6 transform -translate-x-1/2 w-4 h-4 bg-blue-400 rounded-full border-4 border-blue-950"></div>
 
-                      <h4 className="text-lg font-bold text-white mb-1">{item.title}</h4>
-                      <p className="text-cyan-400 font-semibold text-sm mb-2">{item.company}</p>
-                      <p className="text-blue-300 text-xs mb-3">{item.date}</p>
-                      <p className="text-gray-300 text-sm leading-relaxed">{item.description}</p>
+                      <h4 className="text-base font-bold text-white mb-1">{item.title}</h4>
+                      <p className="text-cyan-400 font-semibold text-xs mb-2">{item.company}</p>
+                      <p className="text-blue-300 text-xs mb-2">{item.date}</p>
+                      <p className="text-gray-300 text-xs leading-relaxed">{item.description}</p>
                     </div>
                   </div>
                 </div>

@@ -68,25 +68,25 @@ export default function Skills() {
   );
 
   return (
-    <section id="skills" ref={sectionRef} className="bg-white/5 py-0">
-      <div className="max-w-7xl mx-auto w-full py-20">
+    <section id="skills" ref={sectionRef} className="w-full min-h-screen bg-white/5 relative" style={{ scrollMarginTop: "-200px" }}>
+      <div className="max-w-6xl mx-auto w-full px-4 sm:px-6 md:px-8 flex flex-col justify-center relative z-10">
         {/* Título */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">
             Mis <span className="text-cyan-400">Skills</span>
           </h2>
           <div className="w-20 md:w-24 h-1.5 bg-linear-to-r from-cyan-400 to-blue-500 mx-auto rounded"></div>
         </div>
 
         {/* Grid de Skills */}
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-10 max-w-5xl mx-auto">
           {/* Technical Skills */}
           <div>
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-6 md:mb-8 flex items-center gap-3">
+            <h3 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6 flex items-center gap-3">
               <span className="text-2xl">⚙️</span>
               Technical Skills
             </h3>
-            <div className="space-y-4 md:space-y-6">
+            <div className="space-y-3 md:space-y-5">
               {technicalSkills.map((skill, idx) => (
                 <SkillBar key={idx} skill={skill} />
               ))}
@@ -95,11 +95,11 @@ export default function Skills() {
 
           {/* Professional Skills */}
           <div>
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-6 md:mb-8 flex items-center gap-3">
+            <h3 className="text-lg md:text-xl font-bold text-white mb-4 md:mb-6 flex items-center gap-3">
               <span className="text-2xl">🎯</span>
               Professional Skills
             </h3>
-            <div className="space-y-4 md:space-y-6">
+            <div className="space-y-3 md:space-y-5">
               {professionalSkills.map((skill, idx) => (
                 <SkillBar key={idx} skill={skill} />
               ))}

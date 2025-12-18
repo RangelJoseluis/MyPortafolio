@@ -11,9 +11,7 @@ export default function Home() {
   return (
     <main>
       <Header />
-      <section id="inicio">
-        <HeroInteractive />
-      </section>
+      <HeroInteractive />
       <About />
       <Skills />
       <Curriculum />

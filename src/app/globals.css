@@ -2,7 +2,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 56px;
+  scroll-padding-top: 193px;
 }
 
 :root {
@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  background: linear-gradient(135deg, var(--background) 0%, #1a1f3a 100%);
+  background: #0a0e27;
   color: var(--foreground);
   min-height: 100vh;
 }
@@ -25,14 +25,52 @@ body {
   box-sizing: border-box;
 }
 
-/* Cada sección ocupa 100% de la pantalla */
+/* Main sin márgenes ni padding */
+main {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+/* Cada sección ocupa viewport completo y centraliza su contenido */
 section {
   width: 100%;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 1rem !important;
+  padding: 70px 1rem 50px 1rem !important;
+  scroll-margin-top: -200px;
+  position: relative;
+}
+
+/* Hero section sin padding - ocupa todo el viewport */
+#inicio {
+  height: 100vh !important;
+  min-height: 100vh !important;
+  width: 100vw !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Degradado de transición suave entre secciones */
+section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 250px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(10, 14, 39, 0.05) 40%,
+    rgba(10, 14, 39, 0.15) 70%,
+    rgba(10, 14, 39, 0.3) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* Override de max-width para mejor centrado */
@@ -162,6 +200,80 @@ section {
 section {
   padding-left: 1rem !important;
   padding-right: 1rem !important;
+}
+
+/* Estilos de selección */
+::selection {
+  background-color: var(--cyan-primary);
+  color: white;
+}
+
+/* ========== ANIMACIONES DE SCROLL EN SECCIONES ========== */
+
+/* Animación fade-in al entrar en viewport */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación de aparición desde arriba */
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación de escala suave */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Aplicar animaciones a las secciones */
+section {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Animación para títulos */
+h2, h3 {
+  animation: slideInDown 0.6s ease-out;
+}
+
+/* Animación para elementos con clase específica */
+.animate-on-scroll {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-on-scroll-delay-1 {
+  animation: fadeInUp 0.8s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.animate-on-scroll-delay-2 {
+  animation: fadeInUp 0.8s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-on-scroll-delay-3 {
+  animation: fadeInUp 0.8s ease-out 0.3s forwards;
+  opacity: 0;
 }
 
 /* Estilos de selección */
