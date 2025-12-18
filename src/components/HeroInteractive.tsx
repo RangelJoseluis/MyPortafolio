@@ -64,21 +64,23 @@ export default function HeroInteractive() {
           >
             {/* Imagen de perfil */}
             <div className="relative w-full h-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-              <img
+              {/* Overlay de brillo - DETRÁS */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0"></div>
+
+              {/* Imagen - DELANTE */}
+              <Image
                 src="/assets/me.jpg"
                 alt="Jose Luis Rangel"
-                className="w-full h-full object-cover pointer-events-none select-none"
+                fill
+                className="object-cover pointer-events-none select-none relative z-10"
+                priority
+                sizes="(max-width: 640px) 144px, (max-width: 768px) 176px, (max-width: 1024px) 192px, 208px"
                 onError={(e) => {
-                  console.error("Error cargando imagen:", e);
-                  // No ocultamos el elemento para ver si aparece el icono de error
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
                 }}
               />
-              {/* Overlay de brillo */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
             </div>
-
-            {/* Efecto de brillo en hover */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </div>
         </div>
 
