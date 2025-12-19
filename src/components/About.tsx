@@ -7,7 +7,7 @@ import InterestsSection from './About/InterestsSection';
 
 export default function About() {
   return (
-    <section id="sobremi" className="w-full min-h-screen bg-[#0a0e27] relative overflow-hidden flex items-center pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+    <section id="sobremi" className="w-full bg-[#0a0e27] relative overflow-hidden flex items-center py-12 px-8 md:px-16 lg:px-24">
       {/* Fondo con degradado sutil */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a2e] via-[#0a0e27] to-[#0f3460] opacity-80"></div>
 

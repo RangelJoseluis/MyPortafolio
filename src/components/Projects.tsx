@@ -9,7 +9,7 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="portfolio" className="w-full min-h-screen bg-[#0a0e27] relative overflow-hidden flex items-start pt-10 pb-10 px-4 sm:px-6 lg:px-8">
+    <section id="portfolio" className="w-full min-h-screen bg-[#0a0e27] relative overflow-hidden flex items-start pb-10 px-4 sm:px-6 lg:px-8">
       {/* Fondo con degradado sutil */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#0a0e27] via-[#0f1635] to-[#0a0e27] opacity-90"></div>
 
