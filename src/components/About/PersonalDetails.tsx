@@ -61,7 +61,11 @@ export default function PersonalDetails() {
 
             {/* Botón Descargar CV - Movido aquí */}
             <div className="w-full transform-gpu">
-                <button className="group relative w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-bold text-white text-lg shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all duration-300 hover:-translate-y-1 overflow-hidden flex items-center justify-center gap-3 will-change-transform">
+                <a
+                    href="/archivos/CV - Jose Luis Rangel Perez Aspirante.pdf"
+                    download
+                    className="group relative w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-bold text-white text-lg shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all duration-300 hover:-translate-y-1 overflow-hidden flex items-center justify-center gap-3 will-change-transform cursor-pointer"
+                >
                     <span className="relative z-10 flex items-center gap-3 whitespace-nowrap">
                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -69,7 +73,7 @@ export default function PersonalDetails() {
                         Descargar CV
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </button>
+                </a>
             </div>
         </div>
     );
