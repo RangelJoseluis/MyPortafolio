@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mi Portafolio - Desarrollador Web",
-  description: "Portafolio personal de desarrollador web con proyectos y experiencia",
+  title: "DevJose Luis | Portafolio",
+  description: "Portafolio profesional de Jose Luis R., Desarrollador Full Stack especializado en Java, Spring Boot, React y Next.js.",
 };
 
 export default function RootLayout({

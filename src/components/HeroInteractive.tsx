@@ -85,8 +85,8 @@ export default function HeroInteractive() {
           </p>
 
           <p className="text-[10px] sm:text-xs text-blue-100/80 leading-relaxed max-w-md px-4 italic">
-            Apasionado por crear aplicaciones web modernas y soluciones innovadoras.
-            Especializado en React, Next.js y desarrollo full-stack.
+            Especialista en el ecosistema <span className="text-white font-semibold">Java (Spring Boot)</span> y <span className="text-white font-semibold">TypeScript (Node.js, NestJS)</span>.
+            Apasionado por crear interfaces modernas con <span className="text-white font-semibold">React y Next.js</span>, enfocadas en la escalabilidad y el código limpio.
           </p>
 
           {/* Botones de acción - Más compactos */}
