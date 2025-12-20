@@ -8,7 +8,7 @@ import ContactMap from './Contact/ContactMap';
 export default function Contact() {
   return (
     <section id="contacto" className="flex items-center justify-center pt-15 pb-12 px-6 sm:px-12 lg:px-24 min-h-[70vh]">
-      <div className="max-w-7xl mx-auto w-full relative z-10">
+      <div className="max-w-7xl mx-auto w-full relative">
         {/* Encabezado */}
         <div className="mb-6 flex flex-col items-center">
           <div className="relative inline-block text-center">

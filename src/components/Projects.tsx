@@ -9,7 +9,7 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="portfolio" className="pt-15 pb-38 px-6 sm:px-12 lg:px-24 min-h-[60vh]">  {/* pb-38 entre mas alto podra slejar contacto de la parte inferior */}
+    <section id="portfolio" className="pt-15 pb-10 px-6 sm:px-12 lg:px-24 min-h-[60vh]">
       <div className="max-w-7xl mx-auto w-full relative z-10">
         {/* Encabezado */}
         <div className="mb-8 flex flex-col items-center">
@@ -25,7 +25,7 @@ export default function Projects() {
         </div>
 
         {/* Grid de Proyectos */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projectsData.map((project) => (
             <ProjectCard
               key={project.id}
@@ -35,14 +35,14 @@ export default function Projects() {
           ))}
 
           {/* Tarjeta de "Próximamente" */}
-          <div className="group relative bg-[#0f1635]/30 rounded-xl border-2 border-dashed border-white/10 hover:border-cyan-500/30 hover:bg-[#0f1635]/50 transition-all duration-300 flex flex-col items-center justify-center h-full min-h-[160px] p-4 text-center cursor-default">
-            <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform duration-300 group-hover:bg-cyan-500/10">
-              <svg className="w-5 h-5 text-gray-500 group-hover:text-cyan-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="group relative bg-[#0f1635]/30 rounded-xl border-2 border-dashed border-white/10 hover:border-cyan-500/30 hover:bg-[#0f1635]/50 transition-all duration-300 flex flex-col items-center justify-center h-full min-h-[200px] p-6 text-center cursor-default">
+            <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300 group-hover:bg-cyan-500/10">
+              <svg className="w-6 h-6 text-gray-500 group-hover:text-cyan-400 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
               </svg>
             </div>
-            <h3 className="text-sm font-bold text-gray-400 group-hover:text-white transition-colors mb-1">Más Proyectos</h3>
-            <p className="text-gray-600 group-hover:text-gray-400 text-[9px] transition-colors max-w-[130px]">
+            <h3 className="text-base font-bold text-gray-400 group-hover:text-white transition-colors mb-2">Más Proyectos</h3>
+            <p className="text-gray-600 group-hover:text-gray-400 text-xs transition-colors max-w-[180px]">
               Trabajando en nuevas ideas y soluciones innovadoras.
             </p>
           </div>

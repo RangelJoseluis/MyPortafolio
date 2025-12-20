@@ -7,7 +7,7 @@ import AboutImage from './About/AboutImage';
 
 export default function About() {
   return (
-    <section id="sobremi" className="flex items-center justify-center pt-15 pb-8 px-6 sm:px-12 lg:px-24">
+    <section id="sobremi" className="flex items-center justify-center pt-15 pb-10 px-6 sm:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto w-full relative z-10">
         {/* Encabezado de sección - Centrado */}
         <div className="mb-8 flex flex-col items-center">
