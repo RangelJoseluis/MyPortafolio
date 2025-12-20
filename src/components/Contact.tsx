@@ -7,38 +7,36 @@ import ContactMap from './Contact/ContactMap';
 
 export default function Contact() {
   return (
-    <section id="contacto" className="w-full min-h-screen bg-[#020c1b] relative overflow-hidden flex items-center px-4 sm:px-6 lg:px-8">
-      {/* Fondo con degradado y efectos */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#020c1b] via-[#0a192f] to-[#020c1b]"></div>
-      <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-20"></div>
-
-      {/* Orbes decorativos */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none"></div>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
-
-      <div className="max-w-6xl mx-auto w-full relative z-10">
+    <section id="contacto" className="flex items-center justify-center pt-15 pb-12 px-6 sm:px-12 lg:px-24 min-h-[70vh]">
+      <div className="max-w-7xl mx-auto w-full relative z-10">
         {/* Encabezado */}
-        <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 tracking-tight">
-            Ponte en <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">Contacto</span>
-          </h2>
-          <div className="h-1 w-16 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-full mx-auto shadow-[0_0_15px_rgba(34,211,238,0.4)]"></div>
-          <p className="mt-3 text-gray-400 max-w-xl mx-auto text-base">
+        <div className="mb-6 flex flex-col items-center">
+          <div className="relative inline-block text-center">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1 tracking-tight">
+              Ponte en <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">Contacto</span>
+            </h2>
+            <div className="h-1 w-full bg-gradient-to-r from-cyan-400 to-blue-600 rounded-full shadow-[0_0_10px_rgba(34,211,238,0.3)]"></div>
+          </div>
+          <p className="mt-4 text-gray-400 max-w-2xl mx-auto text-xs md:text-sm text-center">
             ¿Tienes una idea en mente o quieres colaborar? Escríbeme y hagamos realidad tu próximo proyecto.
           </p>
         </div>
 
-        {/* Grid Principal */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-          {/* Columna Izquierda: Info + Mapa (5 columnas) */}
-          <div className="lg:col-span-5 space-y-6">
+        {/* Grid Principal: Info + Formulario + Mapa */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-stretch">
+          {/* Columna 1: Info (3 columnas) */}
+          <div className="lg:col-span-3 flex">
             <ContactInfo />
-            <ContactMap />
           </div>
 
-          {/* Columna Derecha: Formulario (7 columnas) */}
-          <div className="lg:col-span-7 h-full">
+          {/* Columna 2: Formulario (5 columnas) */}
+          <div className="lg:col-span-5 flex">
             <ContactForm />
+          </div>
+
+          {/* Columna 3: Mapa (4 columnas) */}
+          <div className="lg:col-span-4 flex">
+            <ContactMap />
           </div>
         </div>
       </div>

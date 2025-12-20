@@ -33,14 +33,14 @@ export default function ContactForm() {
     };
 
     return (
-        <div className="bg-[#0f1635]/50 backdrop-blur-xl border border-white/10 rounded-2xl p-5 shadow-2xl shadow-cyan-500/5 h-full">
-            <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-                <span className="w-1 h-6 bg-gradient-to-b from-cyan-400 to-blue-600 rounded-full"></span>
+        <div className="bg-[#0f1635]/50 backdrop-blur-xl border border-white/10 rounded-2xl p-3 shadow-2xl shadow-cyan-500/5 w-full flex flex-col h-full">
+            <h3 className="text-base font-bold text-white mb-2 flex items-center gap-2">
+                <span className="w-1 h-4 bg-gradient-to-b from-cyan-400 to-blue-600 rounded-full"></span>
                 Envíame un Mensaje
             </h3>
 
-            <form onSubmit={handleSubmit} className="space-y-3">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <form onSubmit={handleSubmit} className="space-y-2 flex-1 flex flex-col">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                     {/* Nombre */}
                     <div className="group">
                         <label className="block text-gray-400 text-[10px] font-bold mb-1 uppercase tracking-wider group-focus-within:text-cyan-400 transition-colors">
@@ -52,7 +52,7 @@ export default function ContactForm() {
                             value={formData.name}
                             onChange={handleChange}
                             placeholder="Juan Pérez"
-                            className="w-full bg-black/20 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-cyan-900/10 transition-all duration-300"
+                            className="w-full bg-black/20 border border-white/10 rounded-lg px-2.5 py-1.5 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-cyan-900/10 transition-all duration-300"
                             required
                         />
                     </div>
@@ -68,7 +68,7 @@ export default function ContactForm() {
                             value={formData.phone}
                             onChange={handleChange}
                             placeholder="+57 300 123 4567"
-                            className="w-full bg-black/20 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-cyan-900/10 transition-all duration-300"
+                            className="w-full bg-black/20 border border-white/10 rounded-lg px-2.5 py-1.5 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-cyan-900/10 transition-all duration-300"
                         />
                     </div>
                 </div>
@@ -84,7 +84,7 @@ export default function ContactForm() {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="tu@email.com"
-                        className="w-full bg-black/20 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-cyan-900/10 transition-all duration-300"
+                        className="w-full bg-black/20 border border-white/10 rounded-lg px-2.5 py-1.5 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-cyan-900/10 transition-all duration-300"
                         required
                     />
                 </div>
@@ -100,13 +100,13 @@ export default function ContactForm() {
                         value={formData.subject}
                         onChange={handleChange}
                         placeholder="Consulta sobre desarrollo web"
-                        className="w-full bg-black/20 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-cyan-900/10 transition-all duration-300"
+                        className="w-full bg-black/20 border border-white/10 rounded-lg px-2.5 py-1.5 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-cyan-900/10 transition-all duration-300"
                         required
                     />
                 </div>
 
                 {/* Mensaje */}
-                <div className="group">
+                <div className="group flex-1 flex flex-col min-h-[80px]">
                     <label className="block text-gray-400 text-[10px] font-bold mb-1 uppercase tracking-wider group-focus-within:text-cyan-400 transition-colors">
                         Mensaje
                     </label>
@@ -114,9 +114,8 @@ export default function ContactForm() {
                         name="message"
                         value={formData.message}
                         onChange={handleChange}
-                        rows={3}
                         placeholder="Cuéntame sobre tu proyecto..."
-                        className="w-full bg-black/20 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-cyan-900/10 transition-all duration-300 resize-none"
+                        className="w-full flex-1 bg-black/20 border border-white/10 rounded-lg px-2.5 py-1.5 text-xs text-white placeholder-gray-600 focus:outline-none focus:border-cyan-500/50 focus:bg-cyan-900/10 transition-all duration-300 resize-none"
                         required
                     ></textarea>
                 </div>
@@ -127,7 +126,7 @@ export default function ContactForm() {
                     disabled={isSubmitting}
                     className="group relative w-full overflow-hidden rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 p-[1px] focus:outline-none focus:ring-2 focus:ring-cyan-400 focus:ring-offset-2 focus:ring-offset-[#0f1635] disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] hover:-translate-y-0.5"
                 >
-                    <div className="relative flex items-center justify-center gap-2 rounded-xl bg-[#0a0e27]/80 px-4 py-3 text-sm font-bold text-white transition-all duration-300 group-hover:bg-transparent group-hover:text-white backdrop-blur-sm">
+                    <div className="relative flex items-center justify-center gap-2 rounded-xl bg-[#0a0e27]/80 px-4 py-1.5 text-[11px] font-bold text-white transition-all duration-300 group-hover:bg-transparent group-hover:text-white backdrop-blur-sm">
                         {isSubmitting ? (
                             <>
                                 <svg className="animate-spin h-4 w-4 text-cyan-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

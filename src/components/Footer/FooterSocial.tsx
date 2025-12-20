@@ -33,27 +33,21 @@ export default function FooterSocial() {
     ];
 
     return (
-        <div>
-            <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                <span className="w-1 h-4 bg-cyan-500 rounded-full"></span>
-                Sígueme
-            </h3>
-            <div className="flex gap-3">
-                {socialLinks.map((social) => (
-                    <a
-                        key={social.name}
-                        href={social.url}
-                        className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-500/50 hover:bg-cyan-500/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]"
-                        title={social.name}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                            {social.icon}
-                        </svg>
-                    </a>
-                ))}
-            </div>
+        <div className="flex justify-center gap-4">
+            {socialLinks.map((social) => (
+                <a
+                    key={social.name}
+                    href={social.url}
+                    className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-500/50 hover:bg-cyan-500/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_15px_rgba(6,182,212,0.3)]"
+                    title={social.name}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        {social.icon}
+                    </svg>
+                </a>
+            ))}
         </div>
     );
 }

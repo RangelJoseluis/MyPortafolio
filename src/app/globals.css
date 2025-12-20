@@ -13,225 +13,34 @@ html {
 }
 
 body {
-  background: #0a0e27;
+  background-color: var(--background);
   color: var(--foreground);
-  min-height: 100vh;
-}
-
-/* Estilos globales */
-* {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+}
+
+/* Regla mínima para secciones */
+section {
+  width: 100%;
+  position: relative;
+}
+
+/* Scrollbar oculto */
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
   box-sizing: border-box;
 }
 
-/* Main sin márgenes ni padding */
-main {
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 100% !important;
-}
-
-/* Cada sección ocupa viewport completo y centraliza su contenido */
-section {
-  width: 100%;
-  height: 100vh;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 80px 1rem 40px 1rem !important;
-  scroll-margin-top: 0px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Hero section sin padding - ocupa todo el viewport */
-#inicio {
-  height: 100vh !important;
-  min-height: 100vh !important;
-  width: 100vw !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  overflow: hidden !important;
-}
-
-
-/* Curriculum section - permite padding personalizado */
-#curriculum {
-  padding: 4rem 1rem 4rem 1rem !important;
-  align-items: flex-start !important;
-  margin-right: auto !important;
-  width: 100% !important;
-}
-
-#portfolio {
-  padding: 4rem 1rem 4rem 1rem !important;
-  /* Top en 0 para subir al máximo */
-  align-items: flex-start !important;
-  justify-content: flex-start !important;
-  height: auto !important;
-  min-height: 100vh !important;
-  width: 100% !important;
-}
-
-.max-w-5xl {
-  max-width: 800px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  width: 100% !important;
-}
-
-/* Forzar centrado en mx-auto */
-.mx-auto {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* Efecto Neon para botones */
-.neon-button {
-  position: relative;
-  border: 2px solid var(--cyan-primary);
-  background: rgba(0, 113, 188, 0.1);
-  color: var(--cyan-primary);
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.75rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  overflow: visible;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Animación de borde neon tipo cargando */
-@keyframes neon-glow {
-  0% {
-    box-shadow: 0 0 5px var(--cyan-primary), 0 0 10px var(--cyan-primary), inset 0 0 5px rgba(0, 113, 188, 0.3);
-  }
-
-  50% {
-    box-shadow: 0 0 10px var(--cyan-primary), 0 0 20px var(--cyan-primary), 0 0 30px var(--cyan-primary), inset 0 0 10px rgba(0, 113, 188, 0.5);
-  }
-
-  100% {
-    box-shadow: 0 0 5px var(--cyan-primary), 0 0 10px var(--cyan-primary), inset 0 0 5px rgba(0, 113, 188, 0.3);
-  }
-}
-
-.neon-button {
-  animation: neon-glow 2s ease-in-out infinite;
-}
-
-.neon-button:hover {
-  background: var(--cyan-primary);
-  color: #001a4d;
-  box-shadow: 0 0 20px var(--cyan-primary), 0 0 30px var(--cyan-primary), 0 0 40px var(--cyan-primary), inset 0 0 15px rgba(0, 113, 188, 0.6);
-  text-shadow: 0 0 5px rgba(0, 113, 188, 0.8);
-  animation: neon-glow 0.5s ease-in-out infinite;
-}
-
-/* Punto moviéndose alrededor del botón */
-@keyframes border-glow {
-  0% {
-    border-color: var(--cyan-primary);
-    box-shadow:
-      0 0 0 2px var(--cyan-primary),
-      inset 0 0 0 0px var(--cyan-primary),
-      12px 0px 10px var(--cyan-primary);
-  }
-
-  25% {
-    box-shadow:
-      0 0 0 2px var(--cyan-primary),
-      inset 0 0 0 0px var(--cyan-primary),
-      0px 12px 10px var(--cyan-primary);
-  }
-
-  50% {
-    box-shadow:
-      0 0 0 2px var(--cyan-primary),
-      inset 0 0 0 0px var(--cyan-primary),
-      -12px 0px 10px var(--cyan-primary);
-  }
-
-  75% {
-    box-shadow:
-      0 0 0 2px var(--cyan-primary),
-      inset 0 0 0 0px var(--cyan-primary),
-      0px -12px 10px var(--cyan-primary);
-  }
-
-  100% {
-    box-shadow:
-      0 0 0 2px var(--cyan-primary),
-      inset 0 0 0 0px var(--cyan-primary),
-      12px 0px 10px var(--cyan-primary);
-  }
-}
-
-/* Diseño Premium Glass para botones de navegación */
-.neon-nav-button {
-  position: relative;
-  background: rgba(255, 255, 255, 0.03);
-  color: rgba(255, 255, 255, 0.9) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(4px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
-  letter-spacing: 0.5px;
-}
-
-/* Efecto de brillo deslizante */
-.neon-nav-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent);
-  transition: 0.6s;
-}
-
-.neon-nav-button:hover {
-  background: rgba(6, 182, 212, 0.15);
-  /* Cyan sutil */
-  border-color: rgba(6, 182, 212, 0.6);
-  color: #fff !important;
-  box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
-  transform: translateY(-2px);
-  text-shadow: 0 0 8px rgba(6, 182, 212, 0.6);
-}
-
-.neon-nav-button:hover::before {
-  left: 100%;
-}
-
-/* Padding horizontal consistente */
-section {
-  padding-left: 1rem !important;
-  padding-right: 1rem !important;
-}
-
-/* Estilos de selección */
-::selection {
-  background-color: var(--cyan-primary);
-  color: white;
-}
-
-/* ========== ANIMACIONES DE SCROLL EN SECCIONES ========== */
-
-/* Animación fade-in al entrar en viewport */
+/* Utilidades de animación */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
 
   to {
@@ -240,61 +49,8 @@ section {
   }
 }
 
-/* Animación de aparición desde arriba */
-@keyframes slideInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Animación de escala suave */
-@keyframes scaleIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* Aplicar animaciones a las secciones */
-section {
+.animate-fade-in {
   animation: fadeInUp 0.8s ease-out forwards;
-}
-
-/* Animación para títulos */
-h2,
-h3 {
-  animation: slideInDown 0.6s ease-out;
-}
-
-/* Animación para elementos con clase específica */
-.animate-on-scroll {
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.animate-on-scroll-delay-1 {
-  animation: fadeInUp 0.8s ease-out 0.1s forwards;
-  opacity: 0;
-}
-
-.animate-on-scroll-delay-2 {
-  animation: fadeInUp 0.8s ease-out 0.2s forwards;
-  opacity: 0;
-}
-
-.animate-on-scroll-delay-3 {
-  animation: fadeInUp 0.8s ease-out 0.3s forwards;
-  opacity: 0;
 }
 
 /* Estilos de selección */
@@ -303,35 +59,24 @@ h3 {
   color: white;
 }
 
-::-webkit-scrollbar {
-  width: 0 !important;
-  display: none !important;
+.neon-nav-button {
+  @apply relative text-white/70 hover:text-white transition-all duration-300 px-4 py-2 rounded-lg;
 }
 
-::-webkit-scrollbar-track {
-  display: none !important;
+.neon-nav-button::after {
+  content: '';
+  @apply absolute bottom-1 left-1/2 w-0 h-[2px] bg-cyan-400 -translate-x-1/2 transition-all duration-300;
 }
 
-::-webkit-scrollbar-thumb {
-  display: none !important;
+.neon-nav-button:hover::after {
+  @apply w-[60%];
 }
 
-/* Ocultar scrollbar en Firefox */
-* {
-  scrollbar-width: none;
+.neon-nav-button:active {
+  @apply scale-90 text-cyan-400;
 }
 
-/* Animación de brillo deslizante para barras de progreso */
-@keyframes shimmer-slide {
-  0% {
-    transform: translateX(-100%);
-  }
-
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-.animate-shimmer {
-  animation: shimmer-slide 1.5s infinite linear;
+.neon-nav-button:hover {
+  text-shadow: 0 0 8px rgba(34, 211, 238, 0.5);
+  @apply bg-white/5;
 }

@@ -9,17 +9,17 @@ interface SkillBarProps {
 
 export default function SkillBar({ name, level, delay = 0, isVisible = false }: SkillBarProps) {
     return (
-        <div className="mb-6 group relative">
-            <div className="flex justify-between items-end mb-2">
-                <span className="text-gray-200 font-medium text-base group-hover:text-cyan-400 transition-colors duration-300">
+        <div className="mb-4 group relative">
+            <div className="flex justify-between items-end mb-1">
+                <span className="text-gray-200 font-medium text-sm group-hover:text-cyan-400 transition-colors duration-300">
                     {name}
                 </span>
-                <span className="text-cyan-500 font-bold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="text-cyan-500 font-bold text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {level}%
                 </span>
             </div>
 
-            <div className="h-2.5 w-full bg-[#0a0e27] rounded-full overflow-hidden border border-white/5 relative">
+            <div className="h-1.5 w-full bg-[#0a0e27] rounded-full overflow-hidden border border-white/5 relative">
                 {/* Fondo sutil */}
                 <div className="absolute inset-0 bg-white/5"></div>
 

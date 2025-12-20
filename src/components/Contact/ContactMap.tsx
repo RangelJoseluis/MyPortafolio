@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function ContactMap() {
     return (
-        <div className="bg-[#0f1635]/50 backdrop-blur-xl border border-white/10 rounded-2xl p-2 shadow-2xl shadow-cyan-500/5 h-[200px] md:h-[200px] min-h-[200px] relative overflow-hidden group">
+        <div className="bg-[#0f1635]/50 backdrop-blur-xl border border-white/10 rounded-2xl p-3 shadow-2xl shadow-cyan-500/5 h-full w-full relative overflow-hidden group min-h-[250px]">
             {/* Overlay de brillo */}
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-blue-600/5 pointer-events-none z-10 rounded-xl"></div>
 

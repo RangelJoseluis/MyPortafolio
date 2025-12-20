@@ -45,14 +45,14 @@ export default function Header() {
             </a>
           </div>
 
-          {/* Navegación Desktop - Más a la derecha y botones más grandes */}
-          <nav className="hidden md:flex gap-4 lg:gap-6 items-center">
+          {/* Navegación Desktop - Espaciado optimizado */}
+          <nav className="hidden md:flex gap-1 lg:gap-2 items-center">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="neon-nav-button px-5 md:px-6 py-1.5 md:py-2 rounded-lg text-sm md:text-base whitespace-nowrap font-medium transition-all hover:scale-105"
+                className="neon-nav-button text-sm md:text-[15px] whitespace-nowrap font-semibold"
               >
                 {link.label}
               </a>

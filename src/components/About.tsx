@@ -2,41 +2,40 @@
 
 import React from 'react';
 import BioSection from './About/BioSection';
-import PersonalDetails from './About/PersonalDetails';
 import InterestsSection from './About/InterestsSection';
+import AboutImage from './About/AboutImage';
 
 export default function About() {
   return (
-    <section id="sobremi" className="w-full bg-[#0a0e27] relative overflow-hidden flex items-center py-12 px-8 md:px-16 lg:px-24">
-      {/* Fondo con degradado sutil */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a2e] via-[#0a0e27] to-[#0f3460] opacity-80"></div>
-
-      {/* Elementos decorativos de fondo */}
-      <div className="absolute top-20 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
+    <section id="sobremi" className="flex items-center justify-center pt-15 pb-8 px-6 sm:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto w-full relative z-10">
-        {/* Encabezado de sección - Alineado a la izquierda */}
-        <div className="mb-12 flex flex-col items-center md:items-start">
-          <div className="relative inline-block">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 tracking-tight">
+        {/* Encabezado de sección - Centrado */}
+        <div className="mb-8 flex flex-col items-center">
+          <div className="relative inline-block text-center">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1 tracking-tight">
               Sobre <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">Mí</span>
             </h2>
-            {/* Línea decorativa justo debajo del texto y del mismo ancho */}
-            <div className="h-1.5 w-full bg-gradient-to-r from-cyan-400 to-blue-600 rounded-full shadow-[0_0_20px_rgba(34,211,238,0.4)]"></div>
+            <div className="h-1 w-full bg-gradient-to-r from-cyan-400 to-blue-600 rounded-full shadow-[0_0_10px_rgba(34,211,238,0.3)]"></div>
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-          {/* Columna Izquierda: Bio e Intereses (7 columnas) */}
-          <div className="lg:col-span-7 space-y-10 order-2 lg:order-1">
-            <BioSection />
-            <InterestsSection />
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+          {/* Columna Izquierda: Foto con Overlay Interactivo */}
+          <div className="lg:col-span-4 flex flex-col items-center">
+            <AboutImage />
           </div>
 
-          {/* Columna Derecha: Tarjeta de Detalles (5 columnas) */}
-          <div className="lg:col-span-5 lg:sticky lg:top-24 order-1 lg:order-2">
-            <PersonalDetails />
+          {/* Columna Derecha: Bio e Intereses */}
+          <div className="lg:col-span-8 space-y-6">
+            <div className="bg-[#0f1635]/30 backdrop-blur-sm border border-white/5 rounded-3xl p-6 md:p-8 space-y-6 shadow-2xl">
+              <BioSection />
+
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+
+              <div className="pt-0">
+                <InterestsSection />
+              </div>
+            </div>
           </div>
         </div>
       </div>

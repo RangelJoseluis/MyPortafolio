@@ -1,102 +1,92 @@
+'use client';
+
 import React from 'react';
 import { personalData } from './AboutData';
 
 export default function PersonalDetails() {
     return (
-        <div className="flex flex-col gap-8 h-full w-full transform-gpu">
-            {/* Tarjeta de Datos Personales */}
-            <div className="relative group w-full">
-                {/* Efecto de borde brillante animado */}
-                <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl opacity-30 group-hover:opacity-70 blur-lg transition duration-500 will-change-opacity"></div>
-
-                {/* Contenedor principal con esquinas menos redondeadas para evitar cortes */}
-                <div className="relative h-full bg-[#0a0e27]/95 backdrop-blur-xl border border-white/10 rounded-2xl p-8 md:p-10 hover:border-white/20 transition-colors duration-300 flex flex-col justify-center shadow-2xl backface-hidden">
-
-                    {/* Encabezado de la tarjeta */}
-                    <div className="flex items-center gap-4 mb-8 border-b border-white/10 pb-6">
-                        <div className="p-3 bg-gradient-to-br from-cyan-500/20 to-blue-600/20 rounded-xl text-cyan-400 border border-cyan-500/20 shadow-[0_0_15px_rgba(34,211,238,0.2)]">
-                            <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                            </svg>
-                        </div>
-                        <h3 className="text-2xl md:text-3xl font-bold text-white tracking-wide">Datos Personales</h3>
-                    </div>
-
-                    {/* Lista de datos */}
-                    <ul className="space-y-8">
-                        <DetailItem
-                            icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />}
-                            label="Cumpleaños"
-                            value={personalData.birthDate}
-                        />
-                        <DetailItem
-                            icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />}
-                            label="Teléfono"
-                            value={personalData.phone}
-                        />
-                        <DetailItem
-                            icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />}
-                            label="Email"
-                            value={personalData.email}
-                            isLink
-                            href={`mailto:${personalData.email}`}
-                        />
-                        <DetailItem
-                            icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />}
-                            label="Ubicación"
-                            value={personalData.address}
-                        />
-
-                        <li className="pt-4 mt-4 border-t border-white/5">
-                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white/5 rounded-xl p-4 border border-white/5 hover:bg-white/10 transition-colors">
-                                <span className="text-gray-400 text-sm font-medium uppercase tracking-wider">Cargo Actual</span>
-                                <span className="bg-gradient-to-r from-cyan-500/20 to-blue-600/20 text-cyan-300 px-4 py-2 rounded-lg text-sm font-bold border border-cyan-500/30 shadow-[0_0_10px_rgba(34,211,238,0.1)] text-center whitespace-nowrap">
-                                    {personalData.role}
-                                </span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+        <div className="w-full space-y-2">
+            <div className="grid grid-cols-1 gap-1.5">
+                <DetailItem
+                    icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />}
+                    label="Cumpleaños"
+                    value={personalData.birthDate}
+                />
+                <DetailItem
+                    icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />}
+                    label="Teléfono"
+                    value={personalData.phone}
+                />
+                <DetailItem
+                    icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />}
+                    label="Email"
+                    value={personalData.email}
+                    isLink
+                    href={`mailto:${personalData.email}`}
+                />
+                <DetailItem
+                    icon={<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />}
+                    label="Ubicación"
+                    value={personalData.address}
+                />
             </div>
 
-            {/* Botón Descargar CV - Movido aquí */}
-            <div className="w-full transform-gpu">
+            <div className="pt-2 flex flex-col gap-2">
                 <a
-                    href="/archivos/CV - Jose Luis Rangel Perez Aspirante.pdf"
-                    download
-                    className="group relative w-full py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-bold text-white text-lg shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all duration-300 hover:-translate-y-1 overflow-hidden flex items-center justify-center gap-3 will-change-transform cursor-pointer"
+                    href="/archivos/CV_JoseLuisRangel.pdf"
+                    download="CV_JoseLuisRangel.pdf"
+                    className="flex items-center justify-center gap-2 w-full py-2 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-xl font-bold text-white text-[10px] shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/40 transition-all duration-300 hover:-translate-y-1"
                 >
-                    <span className="relative z-10 flex items-center gap-3 whitespace-nowrap">
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                        </svg>
-                        Descargar CV
-                    </span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Descargar CV
                 </a>
+
+                <div className="flex justify-center gap-3 pt-1">
+                    <SocialLink href="https://github.com/RangelJoseluis" title="GitHub" icon={<path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />} />
+                    <SocialLink href="https://linkedin.com/in/joseluisrangelperez" title="LinkedIn" icon={<path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z" />} />
+                    <SocialLink href={`mailto:${personalData.email}`} title="Email" icon={<path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />} />
+                </div>
             </div>
         </div>
     );
 }
 
+function SocialLink({ href, title, icon }: { href: string, title: string, icon: React.ReactNode }) {
+    return (
+        <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-8 h-8 bg-white/5 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/10 hover:border-cyan-500/50 transition-all duration-300 hover:-translate-y-1"
+            title={title}
+        >
+            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
+                {icon}
+            </svg>
+        </a>
+    );
+}
+
 function DetailItem({ icon, label, value, isLink, href }: { icon: React.ReactNode, label: string, value: string, isLink?: boolean, href?: string }) {
     return (
-        <li className="flex items-start gap-5 group/item transform-gpu">
-            <div className="mt-1 text-gray-500 group-hover/item:text-cyan-400 transition-colors duration-300 will-change-colors">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="flex items-center gap-2.5 group p-1 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/5">
+            <div className="p-1.5 rounded-lg bg-cyan-500/10 text-cyan-400 group-hover:scale-110 transition-transform duration-300 shrink-0">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     {icon}
                 </svg>
             </div>
-            <div className="flex-1">
-                <p className="text-gray-500 text-xs font-bold uppercase tracking-widest mb-1.5">{label}</p>
+            <div className="flex-1 min-w-0">
+                <p className="text-gray-500 text-[8px] font-bold uppercase tracking-widest leading-none mb-1">{label}</p>
                 {isLink ? (
-                    <a href={href} className="text-lg md:text-xl text-white hover:text-cyan-400 transition-colors font-medium break-all leading-snug block">
+                    <a href={href} className="text-[10px] text-white hover:text-cyan-400 transition-colors font-medium break-all leading-tight block truncate">
                         {value}
                     </a>
                 ) : (
-                    <p className="text-lg md:text-xl text-white font-medium leading-snug">{value}</p>
+                    <p className="text-[10px] text-white font-medium leading-tight truncate">{value}</p>
                 )}
             </div>
-        </li>
+        </div>
     );
 }
