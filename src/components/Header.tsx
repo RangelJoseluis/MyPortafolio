@@ -1,19 +1,45 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('inicio');
 
   const navLinks = [
     { label: 'Inicio', href: '#inicio' },
     { label: 'Sobre Mí', href: '#sobremi' },
-    { label: 'Skills', href: '#skills' },
+    { label: 'Habilidades', href: '#habilidades' },
     { label: 'Curriculum', href: '#curriculum' },
-    { label: 'Portfolio', href: '#portfolio' },
+    { label: 'Proyectos', href: '#proyectos' },
     { label: 'Contacto', href: '#contacto' },
   ];
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-40% 0px -40% 0px',
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    navLinks.forEach((link) => {
+      const element = document.getElementById(link.href.replace('#', ''));
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -23,13 +49,10 @@ export default function Header() {
     const targetElement = document.getElementById(targetId);
 
     if (targetElement) {
-      const headerOffset = 0; // Usar scroll-padding-top del CSS
-      const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
+      setActiveSection(targetId);
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
       });
     }
   };
@@ -40,7 +63,7 @@ export default function Header() {
         <div className="flex justify-between items-center h-12">
           {/* Logo - Más a la izquierda y más grande */}
           <div className="shrink-0">
-            <a href="#inicio" className="text-xl md:text-2xl font-bold text-white hover:text-cyan-300 transition-colors duration-300 flex items-center">
+            <a href="#inicio" onClick={(e) => handleNavClick(e, '#inicio')} className="text-xl md:text-2xl font-bold text-white hover:text-cyan-300 transition-colors duration-300 flex items-center">
               Dev<span className="text-cyan-400">Jose Luis</span>
             </a>
           </div>
@@ -52,7 +75,10 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="neon-nav-button text-sm md:text-[15px] whitespace-nowrap font-semibold"
+                className={`neon-nav-button text-sm md:text-[15px] whitespace-nowrap font-semibold transition-all duration-300 ${activeSection === link.href.replace('#', '')
+                  ? 'text-cyan-400 bg-white/10 shadow-[0_0_15px_rgba(34,211,238,0.2)] active'
+                  : 'text-white/70'
+                  }`}
               >
                 {link.label}
               </a>
@@ -83,7 +109,10 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="block text-white hover:text-cyan-300 px-3 py-2 rounded-md text-base font-medium transition-colors duration-300"
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-300 ${activeSection === link.href.replace('#', '')
+                  ? 'text-cyan-400 bg-white/10 active'
+                  : 'text-white hover:text-cyan-300'
+                  }`}
               >
                 {link.label}
               </a>

@@ -9,7 +9,7 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="portfolio" className="pt-15 pb-10 px-6 sm:px-12 lg:px-24 min-h-[60vh]">
+    <section id="proyectos" className="pt-15 pb-10 px-6 sm:px-12 lg:px-24 min-h-[60vh]">
       <div className="max-w-7xl mx-auto w-full relative z-10">
         {/* Encabezado */}
         <div className="mb-8 flex flex-col items-center">

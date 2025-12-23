@@ -10,10 +10,10 @@ export default function Curriculum() {
   const [isViewAllOpen, setIsViewAllOpen] = useState(false);
 
   return (
-    <section id="curriculum" className="flex items-center justify-center pt-16 pb-10 px-6 sm:px-12 lg:px-24">
+    <section id="curriculum" className="flex items-center justify-center pt-17 pb-10 px-6 sm:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto w-full relative z-10">
         {/* Encabezado de sección */}
-        <div className="mb-12 text-center">
+        <div className="mb-10 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 tracking-tight">
             Mi <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">Trayectoria</span>
           </h2>

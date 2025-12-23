@@ -92,7 +92,7 @@ export default function HeroInteractive() {
           {/* Botones de acción - Más compactos */}
           <div className="flex gap-3 flex-wrap justify-center mt-2">
             <button
-              onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('proyectos')?.scrollIntoView({ behavior: 'smooth' })}
               className="bg-white hover:bg-blue-50 text-[#0071bc] px-6 py-2 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg text-xs md:text-sm"
             >
               Ver mis proyectos

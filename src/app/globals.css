@@ -2,7 +2,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 70px;
+  scroll-padding-top: 35px;
 }
 
 :root {
@@ -68,7 +68,8 @@ section {
   @apply absolute bottom-1 left-1/2 w-0 h-[2px] bg-cyan-400 -translate-x-1/2 transition-all duration-300;
 }
 
-.neon-nav-button:hover::after {
+.neon-nav-button:hover::after,
+.neon-nav-button.active::after {
   @apply w-[60%];
 }
 
@@ -76,7 +77,8 @@ section {
   @apply scale-90 text-cyan-400;
 }
 
-.neon-nav-button:hover {
+.neon-nav-button:hover,
+.neon-nav-button.active {
   text-shadow: 0 0 8px rgba(34, 211, 238, 0.5);
   @apply bg-white/5;
 }
